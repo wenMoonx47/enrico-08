@@ -1,0 +1,114 @@
+{
+  "nav": {
+    "home": "Home",
+    "work": "Work",
+    "playground": "Playground",
+    "contact": "Contact",
+    "resume": "Resume"
+  },
+  "hero": {
+    "headline": "I build the interface between humans and AI models",
+    "subheadline": "Enrico Perania — Senior Software Engineer",
+    "title": "LLM & AI Product Integration",
+    "cta_primary": "View projects",
+    "cta_secondary": "Schedule a call",
+    "scroll": "Scroll"
+  },
+  "about": {
+    "title": "About me",
+    "pullquote": "~9 years building products where AI meets business reality",
+    "bio_1": "I'm a senior engineer based in Lima, Peru, specializing in integrating large language models into real products that scale. I've worked with companies in Mexico, Spain, and the US, building everything from RAG pipelines to microservice systems processing millions of monthly requests.",
+    "bio_2": "My approach combines distributed systems engineering with the latest AI capabilities — turning models into product features that users actually love.",
+    "available": "Available for global remote",
+    "languages": "Languages",
+    "location": "Location"
+  },
+  "expertise": {
+    "title": "Specialties",
+    "llm": "LLM Integration",
+    "llm_desc": "OpenAI, Anthropic, real-time streaming with WebSockets/SSE",
+    "rag": "RAG Pipelines",
+    "rag_desc": "Pinecone, pgvector, embeddings and semantic retrieval",
+    "distributed": "Distributed Systems",
+    "distributed_desc": "Scalable microservices, 1M+ monthly requests",
+    "prompt": "Prompt Engineering",
+    "prompt_desc": "Token optimization, guardrails, 30% cost reduction",
+    "fullstack": "Full Stack",
+    "fullstack_desc": "React, Node.js, Go, PostgreSQL, TypeScript",
+    "leadership": "Technical Leadership",
+    "leadership_desc": "Mentoring, architecture, Agile teams"
+  },
+  "work": {
+    "title": "Selected Work",
+    "view_case": "View case study",
+    "problem": "Problem",
+    "approach": "Approach",
+    "outcome": "Outcome"
+  },
+  "playground": {
+    "title": "AI Playground",
+    "subtitle": "Interactive demos built with the same tools I use in production",
+    "explore": "Explore full playground",
+    "chat_title": "Ask Enrico",
+    "chat_subtitle": "AI chat trained on my experience and projects",
+    "chat_placeholder": "Ask me about my RAG experience...",
+    "chat_send": "Send",
+    "calculator_title": "LLM Cost Calculator",
+    "calculator_subtitle": "Estimate monthly costs by model and volume",
+    "model": "Model",
+    "input_tokens": "Input tokens",
+    "output_tokens": "Output tokens",
+    "requests_month": "Requests / month",
+    "monthly_cost": "Monthly cost",
+    "calculate": "Calculate",
+    "suggested_prompts": ["What experience do you have with RAG?", "What are your most important projects?", "How do you optimize prompts for production?", "What stack do you use for LLM?"]
+  },
+  "journey": {
+    "title": "Professional Journey",
+    "present": "Present"
+  },
+  "tech": {
+    "title": "Tech Arsenal",
+    "frontend": "Frontend",
+    "backend": "Backend",
+    "cloud": "Cloud",
+    "ai_ml": "AI/ML",
+    "devops": "DevOps",
+    "testing": "Testing"
+  },
+  "contact": {
+    "title": "Shall we build something with AI?",
+    "subtitle": "Available for remote roles in Spain, Mexico, LATAM and US/EU",
+    "name": "Name",
+    "email": "Email",
+    "company": "Company",
+    "message": "Message",
+    "send": "Send message",
+    "sending": "Sending...",
+    "success": "Message sent!",
+    "error": "Error sending. Please try again.",
+    "or_email": "Or email me directly"
+  },
+  "footer": {
+    "built": "Designed and built in Lima",
+    "copyright": "© 2026 Enrico Perania"
+  },
+  "projects": {
+    "back": "← Back",
+    "overview": "Overview",
+    "problem": "Problem",
+    "approach": "Approach",
+    "outcome": "Outcome",
+    "architecture": "Architecture",
+    "decisions": "Key Decisions",
+    "metrics": "Metrics",
+    "stack": "Tech Stack",
+    "lessons": "Lessons Learned",
+    "prev": "Previous project",
+    "next": "Next project"
+  },
+  "meta": {
+    "title": "Enrico Perania — Senior LLM & AI Engineer",
+    "description": "Senior Software Engineer specializing in LLM integration and AI product development. Available for remote roles in Spain, Mexico, LATAM and US."
+  }
+}

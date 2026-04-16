@@ -1,0 +1,114 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "work": "Trabajo",
+    "playground": "Playground",
+    "contact": "Contacto",
+    "resume": "CV"
+  },
+  "hero": {
+    "headline": "Construyo la interfaz entre humanos y modelos de IA",
+    "subheadline": "Enrico Perania — Ingeniero de Software Senior",
+    "title": "LLM & AI Product Integration",
+    "cta_primary": "Ver proyectos",
+    "cta_secondary": "Agendar llamada",
+    "scroll": "Desplázate"
+  },
+  "about": {
+    "title": "Sobre mí",
+    "pullquote": "~9 años construyendo productos donde la IA se encuentra con la realidad del negocio",
+    "bio_1": "Soy un ingeniero senior con sede en Lima, Perú, especializado en integrar modelos de lenguaje grandes en productos reales que escalan. He trabajado con empresas en México, España y EE.UU., construyendo desde pipelines RAG hasta sistemas de microservicios que procesan millones de solicitudes mensuales.",
+    "bio_2": "Mi enfoque combina ingeniería de sistemas distribuidos con las últimas capacidades de IA — convirtiendo modelos en características de producto que los usuarios realmente aman.",
+    "available": "Disponible para remoto global",
+    "languages": "Idiomas",
+    "location": "Ubicación"
+  },
+  "expertise": {
+    "title": "Especialidades",
+    "llm": "Integración LLM",
+    "llm_desc": "OpenAI, Anthropic, streaming en tiempo real con WebSockets/SSE",
+    "rag": "Pipelines RAG",
+    "rag_desc": "Pinecone, pgvector, embeddings y recuperación semántica",
+    "distributed": "Sistemas Distribuidos",
+    "distributed_desc": "Microservicios escalables, 1M+ solicitudes mensuales",
+    "prompt": "Prompt Engineering",
+    "prompt_desc": "Optimización de tokens, guardrails, reducción de costos 30%",
+    "fullstack": "Full Stack",
+    "fullstack_desc": "React, Node.js, Go, PostgreSQL, TypeScript",
+    "leadership": "Liderazgo Técnico",
+    "leadership_desc": "Mentoring, arquitectura, equipos Agile"
+  },
+  "work": {
+    "title": "Trabajo Seleccionado",
+    "view_case": "Ver caso de estudio",
+    "problem": "Problema",
+    "approach": "Enfoque",
+    "outcome": "Resultado"
+  },
+  "playground": {
+    "title": "Playground de IA",
+    "subtitle": "Demos interactivos construidos con las mismas herramientas que uso en producción",
+    "explore": "Explorar playground completo",
+    "chat_title": "Pregúntale a Enrico",
+    "chat_subtitle": "Chat con IA entrenado sobre mi experiencia y proyectos",
+    "chat_placeholder": "Pregúntame sobre mi experiencia con RAG...",
+    "chat_send": "Enviar",
+    "calculator_title": "Calculadora de Costos LLM",
+    "calculator_subtitle": "Estima costos mensuales por modelo y volumen",
+    "model": "Modelo",
+    "input_tokens": "Tokens de entrada",
+    "output_tokens": "Tokens de salida",
+    "requests_month": "Solicitudes / mes",
+    "monthly_cost": "Costo mensual",
+    "calculate": "Calcular",
+    "suggested_prompts": ["¿Qué experiencia tienes con RAG?", "¿Cuáles son tus proyectos más importantes?", "¿Cómo optimizas prompts para producción?", "¿Qué stack usas para LLM?"]
+  },
+  "journey": {
+    "title": "Trayectoria Profesional",
+    "present": "Presente"
+  },
+  "tech": {
+    "title": "Arsenal Tecnológico",
+    "frontend": "Frontend",
+    "backend": "Backend",
+    "cloud": "Cloud",
+    "ai_ml": "AI/ML",
+    "devops": "DevOps",
+    "testing": "Testing"
+  },
+  "contact": {
+    "title": "¿Construimos algo con IA?",
+    "subtitle": "Disponible para roles remotos en España, México, LATAM y EE.UU./UE",
+    "name": "Nombre",
+    "email": "Correo",
+    "company": "Empresa",
+    "message": "Mensaje",
+    "send": "Enviar mensaje",
+    "sending": "Enviando...",
+    "success": "¡Mensaje enviado!",
+    "error": "Error al enviar. Intenta de nuevo.",
+    "or_email": "O escríbeme directamente"
+  },
+  "footer": {
+    "built": "Diseñado y construido en Lima",
+    "copyright": "© 2026 Enrico Perania"
+  },
+  "projects": {
+    "back": "← Volver",
+    "overview": "Resumen",
+    "problem": "Problema",
+    "approach": "Enfoque",
+    "outcome": "Resultado",
+    "architecture": "Arquitectura",
+    "decisions": "Decisiones Clave",
+    "metrics": "Métricas",
+    "stack": "Stack Tecnológico",
+    "lessons": "Lecciones Aprendidas",
+    "prev": "Proyecto anterior",
+    "next": "Siguiente proyecto"
+  },
+  "meta": {
+    "title": "Enrico Perania — Ingeniero Senior LLM & AI",
+    "description": "Ingeniero de Software Senior especializado en integración de LLMs y desarrollo de productos de IA. Disponible para roles remotos en España, México, LATAM y EE.UU."
+  }
+}

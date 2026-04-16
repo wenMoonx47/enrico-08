@@ -1,26 +1,392 @@
 @import "tailwindcss";
 
+/* ============================================
+   DESIGN TOKENS
+   ============================================ */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg-base: #0B0118;
+  --bg-gradient-1: #7C3AED;
+  --bg-gradient-2: #D946EF;
+  --bg-gradient-3: #F59E0B;
+  --surface-glass: rgba(255, 255, 255, 0.06);
+  --surface-hover: rgba(255, 255, 255, 0.10);
+  --border-soft: rgba(167, 139, 250, 0.12);
+  --border-glow: rgba(167, 139, 250, 0.35);
+  --text-primary: #F5F3FF;
+  --text-muted: #C4B5FD;
+  --text-dim: #7C6DB0;
+  --accent-primary: #A78BFA;
+  --accent-secondary: #F472B6;
+  --accent-warm: #FBBF24;
+
+  /* Mesh gradient positions */
+  --gradient-x1: 20%;
+  --gradient-y1: 30%;
+  --gradient-x2: 75%;
+  --gradient-y2: 60%;
 }
 
+/* ============================================
+   TAILWIND v4 THEME
+   ============================================ */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-bg-base: var(--bg-base);
+  --color-accent-primary: var(--accent-primary);
+  --color-accent-secondary: var(--accent-secondary);
+  --color-accent-warm: var(--accent-warm);
+  --color-text-primary: var(--text-primary);
+  --color-text-muted: var(--text-muted);
+  --color-text-dim: var(--text-dim);
+  --color-surface-glass: var(--surface-glass);
+  --color-border-soft: var(--border-soft);
+  --color-border-glow: var(--border-glow);
+
+  --font-display: 'Instrument Serif', Georgia, serif;
+  --font-sans: 'Inter Variable', 'Inter', system-ui, sans-serif;
+
+  --animate-mesh-drift: meshDrift 20s ease-in-out infinite;
+  --animate-orb-float: orbFloat 8s ease-in-out infinite;
+  --animate-shimmer: shimmer 3s ease-in-out infinite;
+  --animate-gradient-shift: gradientShift 6s ease-in-out infinite;
+  --animate-pulse-soft: pulseSoft 3s ease-in-out infinite;
+  --animate-spin-slow: spin 20s linear infinite;
+  --animate-marquee: marquee 40s linear infinite;
+
+  --backdrop-blur-glass: 12px;
+  --shadow-glow-sm: 0 0 20px rgba(167, 139, 250, 0.15);
+  --shadow-glow-md: 0 0 40px rgba(167, 139, 250, 0.25);
+  --shadow-glow-lg: 0 0 80px rgba(167, 139, 250, 0.35);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* ============================================
+   @PROPERTY DECLARATIONS (smooth animation)
+   ============================================ */
+@property --gradient-x1 {
+  syntax: '<percentage>';
+  inherits: true;
+  initial-value: 20%;
+}
+@property --gradient-y1 {
+  syntax: '<percentage>';
+  inherits: true;
+  initial-value: 30%;
+}
+@property --gradient-x2 {
+  syntax: '<percentage>';
+  inherits: true;
+  initial-value: 75%;
+}
+@property --gradient-y2 {
+  syntax: '<percentage>';
+  inherits: true;
+  initial-value: 60%;
+}
+
+/* ============================================
+   KEYFRAMES
+   ============================================ */
+@keyframes meshDrift {
+  0%, 100% {
+    --gradient-x1: 20%;
+    --gradient-y1: 30%;
+    --gradient-x2: 75%;
+    --gradient-y2: 60%;
+  }
+  25% {
+    --gradient-x1: 60%;
+    --gradient-y1: 15%;
+    --gradient-x2: 30%;
+    --gradient-y2: 80%;
+  }
+  50% {
+    --gradient-x1: 40%;
+    --gradient-y1: 70%;
+    --gradient-x2: 80%;
+    --gradient-y2: 20%;
+  }
+  75% {
+    --gradient-x1: 10%;
+    --gradient-y1: 50%;
+    --gradient-x2: 55%;
+    --gradient-y2: 40%;
   }
 }
 
+@keyframes orbFloat {
+  0%, 100% { transform: translateY(0px) translateX(0px) scale(1); }
+  33% { transform: translateY(-30px) translateX(20px) scale(1.05); }
+  66% { transform: translateY(20px) translateX(-15px) scale(0.95); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes pulseSoft {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes drawLine {
+  from { stroke-dashoffset: 1000; }
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes cursorBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* ============================================
+   ANIMATED MESH GRADIENT
+   ============================================ */
+.animated-mesh {
+  background:
+    radial-gradient(circle at var(--gradient-x1) var(--gradient-y1), rgba(124, 58, 237, 0.18) 0%, transparent 55%),
+    radial-gradient(circle at var(--gradient-x2) var(--gradient-y2), rgba(217, 70, 239, 0.12) 0%, transparent 55%),
+    radial-gradient(circle at 50% 90%, rgba(245, 158, 11, 0.06) 0%, transparent 50%),
+    #0B0118;
+  animation: meshDrift 20s ease-in-out infinite;
+}
+
+.static-gradient {
+  background:
+    radial-gradient(circle at 20% 30%, rgba(124, 58, 237, 0.15) 0%, transparent 55%),
+    radial-gradient(circle at 75% 60%, rgba(217, 70, 239, 0.10) 0%, transparent 55%),
+    #0B0118;
+}
+
+/* ============================================
+   NOISE OVERLAY
+   ============================================ */
+.noise-overlay {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+  opacity: 0.03;
+}
+
+/* ============================================
+   GLASS MORPHISM
+   ============================================ */
+.glass {
+  background: var(--surface-glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-soft);
+}
+
+.glass-hover:hover {
+  background: var(--surface-hover);
+  border-color: var(--border-glow);
+}
+
+/* ============================================
+   GRADIENT TEXT
+   ============================================ */
+.gradient-text-primary {
+  background: linear-gradient(135deg, #A78BFA 0%, #F472B6 50%, #FBBF24 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-text-primary.animate-shimmer-gradient {
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+.gradient-text-cool {
+  background: linear-gradient(135deg, #A78BFA 0%, #818CF8 50%, #60A5FA 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-text-warm {
+  background: linear-gradient(135deg, #F472B6 0%, #FBBF24 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ============================================
+   SCROLLBAR
+   ============================================ */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(167, 139, 250, 0.3);
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(167, 139, 250, 0.6);
+}
+
+/* ============================================
+   BASE BODY STYLES
+   ============================================ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 17px;
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #0B0118;
+  color: var(--text-primary);
+  font-family: var(--font-inter, 'Inter', system-ui, sans-serif);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  line-height: 1.65;
+}
+
+/* ============================================
+   SELECTION
+   ============================================ */
+::selection {
+  background-color: rgba(167, 139, 250, 0.25);
+  color: #F5F3FF;
+}
+
+/* ============================================
+   TYPOGRAPHY
+   ============================================ */
+.font-display {
+  font-family: var(--font-instrument-serif, 'Georgia', serif);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-instrument-serif, 'Georgia', serif);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+p {
+  color: #C4B5FD;
+  font-size: 1rem;
+}
+
+.text-body {
+  color: #DDD6FE;
+  font-size: 1.0625rem;
+  line-height: 1.7;
+}
+
+/* ============================================
+   GLOW EFFECTS
+   ============================================ */
+.glow-sm {
+  box-shadow: 0 0 20px rgba(167, 139, 250, 0.15);
+}
+
+.glow-md {
+  box-shadow: 0 0 40px rgba(167, 139, 250, 0.25);
+}
+
+.glow-lg {
+  box-shadow: 0 0 80px rgba(167, 139, 250, 0.35);
+}
+
+.text-glow {
+  text-shadow: 0 0 30px rgba(167, 139, 250, 0.5);
+}
+
+/* ============================================
+   ANIMATIONS UTILITY CLASSES
+   ============================================ */
+.animate-mesh-drift {
+  animation: meshDrift 20s ease-in-out infinite;
+}
+
+.animate-orb-float {
+  animation: orbFloat 8s ease-in-out infinite;
+}
+
+.animate-shimmer-gradient {
+  background-size: 200% auto;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+.animate-fade-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.animate-cursor-blink {
+  animation: cursorBlink 1s ease-in-out infinite;
+}
+
+.animate-marquee {
+  animation: marquee 40s linear infinite;
+}
+
+.animate-pulse-soft {
+  animation: pulseSoft 3s ease-in-out infinite;
+}
+
+/* ============================================
+   SHIMMER BUTTON
+   ============================================ */
+.shimmer-btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer-btn::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(90deg, transparent, rgba(167, 139, 250, 0.5), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 3s ease-in-out infinite;
+  border-radius: inherit;
+  z-index: -1;
+}
+
+/* ============================================
+   REDUCED MOTION
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
