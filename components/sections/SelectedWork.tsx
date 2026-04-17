@@ -87,7 +87,7 @@ export function SelectedWork({ locale }: SelectedWorkProps) {
       {/* Section label */}
       <div className="px-6 lg:px-8 pt-24 pb-8 max-w-7xl mx-auto">
         <SectionHeading
-          label={locale === 'es' ? '03 / Trabajo' : '03 / Work'}
+          label={locale === 'es' ? 'Trabajo' : 'Work'}
           heading={t('title')}
         />
       </div>
@@ -109,7 +109,19 @@ export function SelectedWork({ locale }: SelectedWorkProps) {
                 <div className="flex flex-col justify-center gap-7">
                   {/* Company logo + name */}
                   <div className="flex items-center gap-3">
-                    <CompanyLogo src={project.logo} name={project.company} color={project.color} />
+                    <div
+                    className="w-12 h-12 rounded-xl flex items-center justify-center overflow-hidden flex-shrink-0"
+                    style={{ background: 'rgba(255,255,255,0.92)', border: `1px solid ${project.color}30` }}
+                  >
+                    <Image
+                      src={project.logo}
+                      alt={project.company}
+                      width={36}
+                      height={36}
+                      className="object-contain"
+                      onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
+                    />
+                  </div>
                     <div>
                       <p className="font-semibold text-[var(--text-primary)] text-sm">{project.company}</p>
                       <p className="text-xs text-[var(--text-dim)]">{project.dates}</p>
@@ -176,7 +188,7 @@ export function SelectedWork({ locale }: SelectedWorkProps) {
                     <div
                       className="flex items-center gap-3 px-4 py-3"
                       style={{
-                        background: `linear-gradient(135deg, ${project.color}22 0%, ${project.color}08 100%)`,
+                        background: 'rgba(255,255,255,0.95)',
                         borderBottom: `1px solid ${project.color}20`,
                       }}
                     >
@@ -195,7 +207,7 @@ export function SelectedWork({ locale }: SelectedWorkProps) {
                           }}
                         />
                       </div>
-                      <span className="text-xs text-[var(--text-dim)] ml-auto">{project.dates}</span>
+                      <span className="text-xs text-[#444] ml-auto font-medium">{project.dates}</span>
                     </div>
 
                     {/* Product screenshot */}

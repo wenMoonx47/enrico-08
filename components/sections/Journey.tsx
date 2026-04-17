@@ -1,12 +1,9 @@
 'use client';
 
-import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
+import Image from 'next/image';
 import { SectionHeading } from '@/components/primitives/SectionHeading';
-import { GlassCard } from '@/components/primitives/GlassCard';
 import { Badge } from '@/components/primitives/Badge';
-import { TiltCard } from '@/components/primitives/TiltCard';
-import { GradientLine } from '@/components/animations/GradientLine';
 import { ScrollReveal } from '@/components/animations/ScrollReveal';
 import { experience } from '@/lib/data/experience';
 
@@ -29,130 +26,116 @@ export function Journey({ locale }: JourneyProps) {
   };
 
   return (
-    <section id="journey" className="py-24 md:py-32 px-6 lg:px-8 max-w-6xl mx-auto">
+    <section id="journey" className="py-24 md:py-32 px-6 lg:px-8 max-w-5xl mx-auto">
       <SectionHeading
-        label={locale === 'es' ? '06 / Trayectoria' : '06 / Journey'}
+        label={locale === 'es' ? 'Experiencia' : 'Experience'}
         heading={t('title')}
-        className="mb-16"
+        className="mb-14"
       />
 
-      <div className="relative">
-        {/* Vertical line - desktop */}
-        <div className="hidden md:block absolute left-1/2 top-0 bottom-0 -translate-x-1/2 w-px">
-          <GradientLine vertical className="h-full" />
-        </div>
+      <div className="flex flex-col gap-0">
+        {experience.map((job, i) => (
+          <ScrollReveal key={job.id} direction="up" delay={i * 0.08}>
+            <div className="relative flex gap-6 pb-12">
 
-        {/* Mobile vertical line */}
-        <div className="md:hidden absolute left-6 top-0 bottom-0 w-px">
-          <GradientLine vertical className="h-full" />
-        </div>
-
-        <div className="flex flex-col gap-12">
-          {experience.map((job, i) => {
-            const isLeft = i % 2 === 0;
-
-            return (
-              <div key={job.id} className="relative">
-                {/* Timeline dot */}
-                <div className="hidden md:block absolute left-1/2 top-6 -translate-x-1/2 z-10">
-                  <motion.div
-                    className="w-3 h-3 rounded-full border-2 border-violet-500"
-                    style={{ background: job.color }}
-                    initial={{ scale: 0 }}
-                    whileInView={{ scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.2, type: 'spring' }}
-                  />
+              {/* Left: timeline line + dot */}
+              <div className="flex flex-col items-center">
+                <div
+                  className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 overflow-hidden"
+                  style={{
+                    background: 'rgba(255,255,255,0.92)',
+                    border: '1px solid rgba(167,139,250,0.25)',
+                  }}
+                >
+                  {job.logo ? (
+                    <Image
+                      src={job.logo}
+                      alt={job.company}
+                      width={32}
+                      height={32}
+                      className="object-contain"
+                      onError={(e) => {
+                        const el = e.currentTarget as HTMLImageElement;
+                        el.style.display = 'none';
+                        const parent = el.parentElement;
+                        if (parent) {
+                          parent.innerHTML = `<span style="font-size:11px;font-weight:700;color:#1a1a2e">${job.company.slice(0, 2).toUpperCase()}</span>`;
+                        }
+                      }}
+                    />
+                  ) : (
+                    <span className="text-xs font-bold" style={{ color: '#1a1a2e' }}>
+                      {job.company.slice(0, 2).toUpperCase()}
+                    </span>
+                  )}
                 </div>
 
-                {/* Mobile dot */}
-                <div className="md:hidden absolute left-[18px] top-6 z-10">
+                {/* Vertical connector */}
+                {i < experience.length - 1 && (
                   <div
-                    className="w-3 h-3 rounded-full border-2 border-violet-500"
-                    style={{ background: job.color }}
+                    className="w-px flex-1 mt-3"
+                    style={{ background: 'linear-gradient(to bottom, rgba(167,139,250,0.2), transparent)' }}
                   />
+                )}
+              </div>
+
+              {/* Right: content */}
+              <div className="flex-1 pt-1 pb-2">
+                {/* Header row */}
+                <div className="flex flex-wrap items-start justify-between gap-2 mb-1">
+                  <div>
+                    <div className="flex items-center gap-2 flex-wrap">
+                      <span className="font-semibold text-[var(--text-primary)]">{job.company}</span>
+                      {!job.endDate && (
+                        <Badge variant="success" size="sm" pulse>
+                          {locale === 'es' ? 'Actual' : 'Current'}
+                        </Badge>
+                      )}
+                    </div>
+                    <p className="text-sm font-medium mt-0.5 text-[var(--text-muted)]">
+                      {job.role[lang]}
+                    </p>
+                  </div>
+                  <div className="text-right text-xs text-[var(--text-dim)] whitespace-nowrap">
+                    <p>{formatDate(job.startDate)} – {formatDate(job.endDate)}</p>
+                    <p className="mt-0.5">{job.location[lang]}</p>
+                  </div>
                 </div>
 
-                {/* Card */}
-                <div className={`
-                  md:w-[45%] pl-12 md:pl-0
-                  ${isLeft ? 'md:ml-0 md:pr-8' : 'md:ml-auto md:pl-8'}
-                `}>
-                  <ScrollReveal direction={isLeft ? 'right' : 'left'} delay={0.1}>
-                    <TiltCard maxTilt={4}>
-                      <GlassCard className="h-full">
-                        {/* Company header with color accent bar */}
-                        <div
-                          className="-mx-6 -mt-6 mb-5 px-6 pt-5 pb-4 rounded-t-2xl"
-                          style={{ background: `linear-gradient(135deg, ${job.color}18 0%, transparent 100%)` }}
-                        >
-                          <div className="flex items-start justify-between">
-                            <div>
-                              <div className="flex items-center gap-2 mb-2">
-                                <span
-                                  className="text-sm font-bold px-3 py-1 rounded-lg"
-                                  style={{ background: `${job.color}25`, color: job.color }}
-                                >
-                                  {job.company}
-                                </span>
-                                {!job.endDate && (
-                                  <Badge variant="success" size="sm" pulse>
-                                    {locale === 'es' ? 'Actual' : 'Current'}
-                                  </Badge>
-                                )}
-                              </div>
-                              <h3 className="font-display text-xl text-[var(--text-primary)] leading-snug">
-                                {job.role[lang]}
-                              </h3>
-                              <p className="text-sm text-[var(--text-dim)] mt-1">
-                                {job.location[lang]}
-                              </p>
-                            </div>
-                            <div className="text-right text-sm text-[var(--text-dim)] whitespace-nowrap ml-4">
-                              <p className="font-medium">{formatDate(job.startDate)}</p>
-                              <p style={{ color: job.color }}>{formatDate(job.endDate)}</p>
-                            </div>
-                          </div>
-                        </div>
+                {/* Description */}
+                <p className="text-sm text-[var(--text-muted)] leading-relaxed mt-3 mb-4">
+                  {job.description[lang]}
+                </p>
 
-                        {/* Description */}
-                        <p className="text-sm text-[var(--text-muted)] leading-relaxed mb-5">
-                          {job.description[lang]}
-                        </p>
+                {/* Achievements */}
+                <ul className="flex flex-col gap-2 mb-4">
+                  {job.achievements.map((item, j) => (
+                    <li key={j} className="flex gap-2.5 text-sm text-[var(--text-muted)] leading-relaxed">
+                      <span
+                        className="mt-2 w-1.5 h-1.5 rounded-full flex-shrink-0"
+                        style={{ background: 'rgba(167,139,250,0.6)' }}
+                      />
+                      {item[lang]}
+                    </li>
+                  ))}
+                </ul>
 
-                        {/* Achievements */}
-                        <ul className="space-y-3 mb-5">
-                          {job.achievements.slice(0, 3).map((achievement, j) => (
-                            <li key={j} className="flex gap-3 text-sm text-[var(--text-muted)] leading-relaxed">
-                              <span
-                                className="mt-2 w-1.5 h-1.5 rounded-full flex-shrink-0"
-                                style={{ background: job.color }}
-                              />
-                              {achievement[lang]}
-                            </li>
-                          ))}
-                        </ul>
-
-                        {/* Tech tags */}
-                        <div className="flex flex-wrap gap-1.5 pt-4 border-t border-[var(--border-soft)]">
-                          {job.techTags.map(tag => (
-                            <span
-                              key={tag}
-                              className="text-xs px-2.5 py-1 rounded-md font-medium"
-                              style={{ background: `${job.color}15`, color: job.color }}
-                            >
-                              {tag}
-                            </span>
-                          ))}
-                        </div>
-                      </GlassCard>
-                    </TiltCard>
-                  </ScrollReveal>
+                {/* Tech tags */}
+                <div className="flex flex-wrap gap-1.5">
+                  {job.techTags.map(tag => (
+                    <span
+                      key={tag}
+                      className="text-xs px-2.5 py-1 rounded-md font-medium"
+                      style={{ background: 'rgba(167,139,250,0.08)', color: 'var(--text-muted)', border: '1px solid rgba(167,139,250,0.18)' }}
+                    >
+                      {tag}
+                    </span>
+                  ))}
                 </div>
               </div>
-            );
-          })}
-        </div>
+            </div>
+          </ScrollReveal>
+        ))}
       </div>
     </section>
   );

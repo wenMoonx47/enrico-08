@@ -21,13 +21,14 @@ export const experience: ExperienceEntry[] = [
   {
     id: 'kueski',
     company: 'Kueski',
+    logo: 'https://cdn.prod.website-files.com/642533e2943fc871d1dc670d/642d4d9f4b2a5abd56c16739_Logo.svg',
     role: {
-      es: 'Ingeniero de Software Senior · LLM & AI Product',
-      en: 'Senior Software Engineer · LLM & AI Product',
+      es: 'Ingeniero de Software Líder',
+      en: 'Lead Software Engineer',
     },
-    startDate: '2022-08',
+    startDate: '2024-08',
     endDate: null,
-    location: { es: 'México (Remoto)', en: 'Mexico (Remote)' },
+    location: { es: 'México · Remoto desde Perú', en: 'Mexico · Remote from Peru' },
     description: {
       es: 'Lideré la integración de modelos de lenguaje en productos financieros para 2M+ usuarios en la plataforma de crédito Buy Now Pay Later más grande de México.',
       en: 'Led the integration of language models in financial products for 2M+ users on Mexico\'s largest Buy Now Pay Later credit platform.',
@@ -56,13 +57,14 @@ export const experience: ExperienceEntry[] = [
   {
     id: 'retool',
     company: 'Retool',
+    logo: 'https://retool.com/logo.png',
     role: {
-      es: 'Ingeniero de Software Senior · Plataforma',
-      en: 'Senior Software Engineer · Platform',
+      es: 'Ingeniero Backend Senior',
+      en: 'Senior Backend Engineer',
     },
-    startDate: '2021-03',
-    endDate: '2022-07',
-    location: { es: 'EE.UU. (Remoto)', en: 'US (Remote)' },
+    startDate: '2021-04',
+    endDate: '2024-07',
+    location: { es: 'EE.UU. · Remoto desde Perú', en: 'US · Remote from Peru' },
     description: {
       es: 'Trabajé en el equipo de plataforma, construyendo integraciones y mejorando el rendimiento del builder de aplicaciones internas utilizado por más de 100,000 empresas.',
       en: 'Worked on the platform team, building integrations and improving performance of the internal app builder used by over 100,000 companies.',
@@ -87,13 +89,14 @@ export const experience: ExperienceEntry[] = [
   {
     id: 'factorial',
     company: 'Factorial HR',
+    logo: 'https://factorialhr.com/images/factorial-one-logo.svg',
     role: {
-      es: 'Ingeniero Full Stack Senior',
-      en: 'Senior Full Stack Engineer',
+      es: 'Ingeniero Full Stack Mid-Level',
+      en: 'Mid-Level Full Stack Engineer',
     },
-    startDate: '2019-06',
-    endDate: '2021-02',
-    location: { es: 'Barcelona, España (Remoto)', en: 'Barcelona, Spain (Remote)' },
+    startDate: '2019-01',
+    endDate: '2021-03',
+    location: { es: 'España · Remoto desde Perú', en: 'Spain · Remote from Peru' },
     description: {
       es: 'Parte del equipo de ingeniería que escaló Factorial de startup a +$1B de valoración, construyendo el módulo de nómina y automatización de RRHH para +3000 empresas en Europa.',
       en: 'Part of the engineering team that scaled Factorial from startup to +$1B valuation, building the payroll module and HR automation for +3000 companies in Europe.',
@@ -118,13 +121,14 @@ export const experience: ExperienceEntry[] = [
   {
     id: 'holded',
     company: 'Holded',
+    logo: 'https://logo.clearbit.com/holded.com',
     role: {
-      es: 'Ingeniero Full Stack',
-      en: 'Full Stack Engineer',
+      es: 'Ingeniero Frontend Junior',
+      en: 'Junior Frontend Engineer',
     },
-    startDate: '2017-01',
-    endDate: '2019-05',
-    location: { es: 'Barcelona, España', en: 'Barcelona, Spain' },
+    startDate: '2016-07',
+    endDate: '2018-12',
+    location: { es: 'España · Remoto desde Perú', en: 'Spain · Remote from Peru' },
     description: {
       es: 'Ingeniero de software en plataforma de gestión empresarial ERP/CRM para PYMES en España, construyendo módulos de contabilidad, inventario y facturación.',
       en: 'Software engineer on ERP/CRM business management platform for SMEs in Spain, building accounting, inventory and billing modules.',

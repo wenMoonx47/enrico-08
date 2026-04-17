@@ -44,7 +44,7 @@ export const projects: Project[] = [
       es: 'Ingeniero de Software Senior · LLM & AI Product',
       en: 'Senior Software Engineer · LLM & AI Product',
     },
-    dates: 'Aug 2022 – Present',
+    dates: 'Aug 2024 – Present',
     heroImage: '/images/projects/kueski-ai.jpg',
     problem: {
       es: 'Kueski necesitaba reducir el volumen de consultas de soporte al cliente en 40% mientras mantenía la calidad de respuesta para preguntas complejas sobre crédito, pagos y normativa financiera mexicana.',
@@ -130,7 +130,7 @@ export const projects: Project[] = [
       es: 'Ingeniero de Software Senior · Plataforma',
       en: 'Senior Software Engineer · Platform',
     },
-    dates: 'Mar 2021 – Jul 2022',
+    dates: 'Apr 2021 – Jul 2024',
     heroImage: '/images/projects/retool-scale.jpg',
     problem: {
       es: 'El builder de Retool tenía problemas de rendimiento severos con aplicaciones complejas: tiempo de carga inicial de 8-12 segundos, freezes en canvas con 100+ componentes, y memory leaks que crasheaban el browser.',
@@ -204,7 +204,7 @@ export const projects: Project[] = [
       es: 'Ingeniero Full Stack Senior',
       en: 'Senior Full Stack Engineer',
     },
-    dates: 'Jun 2019 – Feb 2021',
+    dates: 'Jan 2019 – Mar 2021',
     heroImage: '/images/projects/factorial-migration.jpg',
     problem: {
       es: 'Factorial había crecido 10x en usuarios en 18 meses. El monolito Rails original no podía escalar: deploys de 45 minutos, feature flags imposibles, y una base de código de 800,000+ líneas donde cada cambio rompía algo inesperado.',
@@ -268,5 +268,72 @@ export const projects: Project[] = [
     ],
     color: '#F59E0B',
     accentColor: '#FBBF24',
+  },
+  {
+    slug: 'holded-erp',
+    company: 'Holded',
+    logo: 'https://logo.clearbit.com/holded.com',
+    screenshot: 'https://cdn.prod.website-files.com/67b490fcbe3ce7d2c397872f/682b04dbd2c57b8347518765_49c0394869007a671a31461ace4ca938_Home_Hero_ENG.webp',
+    title: {
+      es: 'Plataforma ERP/CRM para PYMEs',
+      en: 'ERP/CRM Platform for SMEs',
+    },
+    role: {
+      es: 'Ingeniero Full Stack',
+      en: 'Full Stack Engineer',
+    },
+    dates: 'Jul 2016 – Dec 2018',
+    heroImage: '/images/projects/holded-erp.jpg',
+    problem: {
+      es: 'Las PYMEs españolas gestionaban contabilidad, inventario y facturación con herramientas dispares. Holded necesitaba un módulo de facturación electrónica conforme a la normativa fiscal española y un dashboard de analytics en tiempo real para visualizar KPIs financieros.',
+      en: 'Spanish SMEs managed accounting, inventory and invoicing with disparate tools. Holded needed an e-invoicing module compliant with Spanish tax regulations and a real-time analytics dashboard to visualize financial KPIs.',
+    },
+    approach: {
+      es: 'Construí el módulo de facturación electrónica integrando los requisitos de la AEAT, y desarrollé un dashboard de analytics en tiempo real usando Chart.js y WebSockets. Paralelamente, refactoricé consultas críticas de PostgreSQL que afectaban el rendimiento de toda la plataforma.',
+      en: 'Built the e-invoicing module integrating AEAT requirements, and developed a real-time analytics dashboard using Chart.js and WebSockets. In parallel, refactored critical PostgreSQL queries affecting platform-wide performance.',
+    },
+    outcome: {
+      es: 'El módulo de facturación fue adoptado por 10,000+ empresas. Las consultas refactorizadas mejoraron el rendimiento en 8x. La plataforma escaló a miles de PYMEs en España consolidando toda su gestión empresarial.',
+      en: 'The invoicing module was adopted by 10,000+ companies. Refactored queries improved performance 8x. The platform scaled to thousands of SMEs in Spain consolidating all their business management.',
+    },
+    architecture: {
+      es: 'Backend Node.js con Vue.js en frontend. PostgreSQL como base de datos principal con Redis para caché. WebSockets para actualizaciones en tiempo real del dashboard. Integración con API de la AEAT para validación fiscal. Despliegue en AWS con Docker.',
+      en: 'Node.js backend with Vue.js frontend. PostgreSQL as main database with Redis for caching. WebSockets for real-time dashboard updates. Integration with AEAT API for tax validation. AWS deployment with Docker.',
+    },
+    keyDecisions: [
+      {
+        title: { es: 'WebSockets para Analytics', en: 'WebSockets for Analytics' },
+        description: {
+          es: 'Elegimos WebSockets sobre polling para el dashboard financiero en tiempo real, reduciendo la carga del servidor un 40% y mejorando la experiencia de usuario notablemente.',
+          en: 'We chose WebSockets over polling for the real-time financial dashboard, reducing server load by 40% and significantly improving user experience.',
+        },
+      },
+      {
+        title: { es: 'Conformidad Fiscal AEAT', en: 'AEAT Tax Compliance' },
+        description: {
+          es: 'Diseñamos el módulo de facturación desde el inicio con los requisitos de la AEAT, evitando costosas refactorizaciones y permitiendo adoptarlo por 10,000+ empresas sin incidentes.',
+          en: 'We designed the invoicing module from the start with AEAT requirements, avoiding costly refactoring and allowing adoption by 10,000+ companies without incidents.',
+        },
+      },
+    ],
+    metrics: [
+      { label: { es: 'Empresas adoptaron facturación', en: 'Companies adopted invoicing' }, value: '10,000', unit: '+' },
+      { label: { es: 'Mejora de rendimiento', en: 'Performance improvement' }, value: '8', unit: 'x' },
+      { label: { es: 'Reducción carga servidor', en: 'Server load reduction' }, value: '40', unit: '%' },
+      { label: { es: 'Años en la plataforma', en: 'Years on platform' }, value: '2+', unit: '' },
+    ],
+    techStack: ['Node.js', 'Vue.js', 'PostgreSQL', 'Redis', 'MongoDB', 'AWS', 'Docker', 'WebSockets', 'Chart.js'],
+    lessons: [
+      {
+        es: 'La conformidad fiscal debe diseñarse desde el día 1, no añadirse después. El coste de hacerlo bien al inicio es una fracción del coste de refactorizar.',
+        en: 'Tax compliance must be designed from day 1, not added later. The cost of getting it right from the start is a fraction of the refactoring cost.',
+      },
+      {
+        es: 'Optimizar queries de base de datos tiene ROI inmediato y visible. Invertir tiempo en EXPLAIN ANALYZE vale más que cualquier capa de caché.',
+        en: 'Optimizing database queries has immediate and visible ROI. Spending time on EXPLAIN ANALYZE is worth more than any caching layer.',
+      },
+    ],
+    color: '#A78BFA',
+    accentColor: '#C4B5FD',
   },
 ];

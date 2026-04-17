@@ -32,7 +32,7 @@ export function TechArsenal({ locale }: TechArsenalProps) {
   return (
     <section id="tech" className="py-24 md:py-32 px-6 lg:px-8 max-w-7xl mx-auto">
       <SectionHeading
-        label={locale === 'es' ? '07 / Tecnologías' : '07 / Technologies'}
+        label={locale === 'es' ? 'Tecnologías' : 'Technologies'}
         heading={t('title')}
         className="mb-12"
       />

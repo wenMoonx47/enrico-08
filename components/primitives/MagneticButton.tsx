@@ -10,6 +10,7 @@ interface MagneticButtonProps {
   className?: string;
   onClick?: () => void;
   href?: string;
+  target?: string;
   type?: 'button' | 'submit' | 'reset';
   disabled?: boolean;
   magnetic?: boolean;
@@ -34,6 +35,7 @@ export function MagneticButton({
   className = '',
   onClick,
   href,
+  target,
   type = 'button',
   disabled = false,
   magnetic = true,
@@ -77,7 +79,7 @@ export function MagneticButton({
 
   if (href) {
     return (
-      <motion.a {...motionProps} href={href}>
+      <motion.a {...motionProps} href={href} target={target} rel={target === '_blank' ? 'noopener noreferrer' : undefined}>
         {variant === 'gradient' && (
           <span className="absolute inset-0 rounded-xl bg-white/10 opacity-0 hover:opacity-100 transition-opacity" />
         )}

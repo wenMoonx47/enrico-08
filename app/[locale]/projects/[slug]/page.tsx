@@ -96,7 +96,10 @@ export default async function ProjectPage({
             { key: 'outcome', content: project.outcome[lang] },
           ].map(({ key, content }) => (
             <GlassCard key={key}>
-              <h2 className="font-display text-xl text-[var(--accent-primary)] mb-3">
+              <h2
+                className="text-xs font-bold tracking-widest uppercase mb-3"
+                style={{ color: 'rgba(255,255,255,0.85)' }}
+              >
                 {t(key as 'problem' | 'approach' | 'outcome')}
               </h2>
               <p className="text-[var(--text-muted)] leading-relaxed">{content}</p>
@@ -118,7 +121,7 @@ export default async function ProjectPage({
           <div className="grid sm:grid-cols-2 gap-4">
             {project.keyDecisions.map((decision, i) => (
               <GlassCard key={i}>
-                <h3 className="font-medium text-[var(--accent-primary)] mb-2">{decision.title[lang]}</h3>
+                <h3 className="font-medium mb-2" style={{ color: 'rgba(255,255,255,0.85)' }}>{decision.title[lang]}</h3>
                 <p className="text-sm text-[var(--text-muted)] leading-relaxed">{decision.description[lang]}</p>
               </GlassCard>
             ))}

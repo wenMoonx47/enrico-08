@@ -45,8 +45,9 @@ export function Navbar({ locale }: NavbarProps) {
   };
 
   const navItems: NavItem[] = [
-    { href: `/${locale}`, label: t('home') },
-    { href: `/${locale}#work`, label: t('work'), anchor: 'work' },
+    { href: `/${locale}#about`, label: locale === 'es' ? 'Sobre mí' : 'About', anchor: 'about' },
+    { href: `/${locale}#expertise`, label: locale === 'es' ? 'Habilidades' : 'Skills', anchor: 'expertise' },
+    { href: `/${locale}#work`, label: locale === 'es' ? 'Proyectos' : 'Projects', anchor: 'work' },
     { href: `/${locale}#journey`, label: locale === 'es' ? 'Experiencia' : 'Experience', anchor: 'journey' },
     { href: `/${locale}/contact`, label: t('contact') },
   ];

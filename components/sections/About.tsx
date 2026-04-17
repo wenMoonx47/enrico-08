@@ -23,7 +23,7 @@ export function About({ locale }: AboutProps) {
         {/* Left: Text (3/5) */}
         <div className="lg:col-span-3 flex flex-col gap-8">
           <SectionHeading
-            label={locale === 'es' ? '01 / Sobre mí' : '01 / About me'}
+            label={locale === 'es' ? 'Sobre mí' : 'About me'}
             heading={t('title')}
           />
 
